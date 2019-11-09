@@ -1,0 +1,6 @@
+  <div class="py-5 text-center">
+    <h2>{{ .Title }}</h2>
+    {{- with .Params.subtitle }}
+      <p class="lead">{{ . }}</p>
+    {{- end }}
+  </div>

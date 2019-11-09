@@ -1,0 +1,11 @@
+name = "Flexible-SEO-Hugo"
+license = "MIT"
+licenselink = "https://github.com/pjbakker/flexible-seo-hugo/blob/master/LICENSE"
+description = ""
+homepage = "http://github.com/pjbakker/flexible-seo-hugo/"
+tags = [ "bootstrap", "customizable", "responsive" ]
+min_version = "0.41"
+
+[author]
+  name = "Paul Bakker"
+  homepage = "https://brain-dump.space"

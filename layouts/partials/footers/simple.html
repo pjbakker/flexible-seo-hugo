@@ -1,0 +1,21 @@
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy;
+      {{- if .Site.Params.since }}
+        {{ .Site.Params.since }} -
+      {{- end }}
+      {{ .Site.LastChange.Format "2006" }}
+
+      {{- if .Site.Author.name }}
+        {{- if .Site.Author.website }}
+          <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
+        {{- else }}
+          {{ .Site.Author.name }}
+        {{- end }}
+      {{- end }}
+    </p>
+    <ul class="list-inline">
+      {{- range $link, $name := .Site.Params.footerLinks }}
+      <li class="list-inline-item"><a href="{{ $link }}">{{ $name }}</a></li>
+      {{- end }}
+    </ul>
+  </footer>
