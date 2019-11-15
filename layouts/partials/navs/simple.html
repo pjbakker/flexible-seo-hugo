@@ -1,13 +1,13 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
   <h5 class="my-0 mr-md-auto font-weight-normal">
-    <a class="text-decoration-none" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a></h5>
+  <a class="text-decoration-none" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a></h5>
   <nav class="my-2 my-md-0 mr-md-3">
-{{ range .Site.Menus.main.ByWeight }}
-  {{ if .HasChildren }}
+{{- range .Site.Menus.main.ByWeight -}}
+  {{- if .HasChildren -}}
     NO HANDLING FOR CHILDREN
-  {{ else }}
+  {{- else }}
     <a class="p-2 text-dark" title="{{ .Name }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
-  {{ end }}
-{{ end }}
+  {{- end }}
+{{- end -}}
   </nav>
 </div>

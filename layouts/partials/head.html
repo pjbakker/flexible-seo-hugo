@@ -1,9 +1,9 @@
-{{- if eq .Kind "home" }}
-  {{- $.Scratch.Set "Description" ( .Site.Params.description | default "The main page" ) }}
-  {{- $.Scratch.Set "Title" .Site.Title }}
-{{- else }}
-  {{- $.Scratch.Set "Description" ( .Description | default .Params.subtitle | default .Summary | default .Kind ) }}
-  {{- $.Scratch.Set "Title" ( .Title | default .Site.Title ) }}
+{{- if eq .Kind "home" -}}
+  {{- $.Scratch.Set "Description" ( .Site.Params.description | default "The main page" ) -}}
+  {{- $.Scratch.Set "Title" .Site.Title -}}
+{{- else -}}
+  {{- $.Scratch.Set "Description" ( .Description | default .Params.subtitle | default .Summary | default .Kind ) -}}
+  {{- $.Scratch.Set "Title" ( .Title | default .Site.Title ) -}}
 {{- end }}
 
     <meta charset="utf-8" />
@@ -12,27 +12,27 @@
 
 <!-- Site Title, Description, Author, and Favicon -->
 {{- with ($.Scratch.Get "Title") }}
-  <title>{{ print . }} - {{ $.Site.Title }}</title>
-{{- end }}
+    <title>{{ print . }} - {{ $.Site.Title }}</title>
+{{- end -}}
 {{- with ($.Scratch.Get "Description") }}
-  <meta name="description" content="{{ . }}">
-{{- end }}
+    <meta name="description" content="{{ . }}">
+{{- end -}}
 {{- with .Site.Author.name }}
-  <meta name="author" content="{{ . }}"/>
-{{- end }}
+    <meta name="author" content="{{ . }}"/>
+{{- end -}}
 {{- with .Site.Params.favicon }}
-  <link href='{{ . | absURL }}' rel='icon' type='image/x-icon'/>
+    <link href='{{ . | absURL }}' rel='icon' type='image/x-icon'/>
 {{- end -}}
 
 <!-- SEO -->
-{{- partial "seo/main.html" . }}
+{{- partial "seo/main.html" . -}}
 
 <!-- Social Media Tags -->
-{{- partial "social/main.html" . }}
+{{- partial "social/main.html" . -}}
 
 <!-- Links and stylesheets -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-{{- partial "head_custom.html" . }}
-{{ template "_internal/google_analytics_async.html" . }}
+{{- partial "head_custom.html" . -}}
+{{ template "_internal/google_analytics_async.html" . -}}

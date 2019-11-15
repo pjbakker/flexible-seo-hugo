@@ -1,5 +1,5 @@
   <div class="py-5 text-center">
-    <h2>{{ .Title }}</h2>
+    <h1>{{ .Params.page_title | default .Title }}</h1>
     {{- with .Params.subtitle }}
       <p class="lead">{{ . }}</p>
     {{- end }}

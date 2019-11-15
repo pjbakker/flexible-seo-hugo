@@ -1,0 +1,5 @@
+{{- $col_definition := .Get "width" | default "col" -}}
+{{- $justify_definition := .Get "justify" | default "justify-content-md-center" -}}
+{{- $align_definition := .Get "align" | default "" -}}
+<div class="row {{ $justify_definition }}">
+  <div class="{{ $col_definition }} {{ $align_definition }}">

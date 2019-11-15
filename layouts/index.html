@@ -1,11 +1,7 @@
 {{ define "main" }}
   <div role="main" class="container">
-    <div class="row">
-      <div class="py-5 text-center">
-        {{ with .Content }}
-          {{.}}
-        {{ end }}
-      </div>
-    </div>
+    {{ with .Content }}
+      {{.}}
+    {{ end }}
   </div>
 {{ end }}
