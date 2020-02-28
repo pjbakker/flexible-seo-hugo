@@ -4,17 +4,21 @@
 {{- $dir := .dir }}
 {{- $output_type := .output_type }}
 {{- $item := print "breadcrumbs/" $output_type "/item.html" }}
+{{- $full_data := "" }}
 
 {{- range $sections }}
-	{{- $section := index $path $level }}
-	{{- $aux := split .URL "/" }}
+  {{- $section := index $path $level }}
+  {{- $aux := split .URL "/" }}
 
-	{{- if eq $section (index $aux $level) }}
-	  {{ partial $item (dict "caption" .Title "url" .URL "image" .Params.share_img "level" $level "final" (eq ( add $level 2 ) (len $path) ) ) }}
-	  
-	  {{- if gt (len .Sections) 0 }}
-	  	{{- partial "breadcrumbs_recursive.html" ( dict "output_type" $output_type "sections" .Sections "level" (add $level 1) "path" $path "dir" $dir ) }}
+  {{- if eq $section (index $aux $level) }}
+    {{ $data := partial $item (dict "caption" .Title "url" .URL "image" .Params.share_img "level" $level "final" (eq ( add $level 2 ) (len $path) ) ) }}
+    {{ $full_data = printf "%s%s" $full_data $data }}
 
-	  {{- end }}
-	{{- end }}
+    {{- if gt (len .Sections) 0 }}
+      {{- $data := partial "breadcrumbs_recursive.html" ( dict "output_type" $output_type "sections" .Sections "level" (add $level 1) "path" $path "dir" $dir ) }}
+      {{ $full_data = printf "%s%s" $full_data $data }}
+    {{- end }}
+  {{- end }}
 {{- end }}
+
+{{ return $full_data }}

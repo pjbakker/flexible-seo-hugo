@@ -1,0 +1,25 @@
+{{- $url := .url }}
+{{- $caption := .caption }}
+{{- $image := .image }}
+{{- $image_str := "" }}
+{{- with $image }}
+{{-  $image_str = . | absURL }}
+{{- end }}
+{{- $level := .level }}
+{{- $final := .final }}
+{{- $final_str := "" }}
+{{- if eq $final false }}
+{{-  $final_str = "," }}
+{{- end }}
+{{- $full_data := printf `
+      {
+        "@type": "ListItem",
+        "position": %d,
+        "item": {
+          "@id": "%s",
+          "name": "%s",
+          "image": "%s"
+        }
+      }%s
+` $level ( $url | absURL ) $caption $image_str $final_str }}
+{{- return $full_data }}

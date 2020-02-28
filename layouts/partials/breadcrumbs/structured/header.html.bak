@@ -1,0 +1,9 @@
+{{ $str := `
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+` }}
+{{ $str := "asdasda" }}
+{{ return $str }}

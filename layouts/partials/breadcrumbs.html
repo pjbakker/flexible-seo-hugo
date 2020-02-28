@@ -3,40 +3,50 @@
 {{- $header := print "breadcrumbs/" $output_type "/header.html" }}
 {{- $item := print "breadcrumbs/" $output_type "/item.html" }}
 {{- $footer := print "breadcrumbs/" $output_type "/footer.html" }}
+{{- $full_data := "" }}
 
 {{- with $ctx }}
   {{- $path := split .URL "/" }}
 
-  {{ partial $header }}
+  {{- $data := partial $header . }}
+  {{- $full_data = printf "%s%s" $full_data $data }}
 
   {{- if eq .Kind "taxonomyTerm" }}
 
-    {{ partial $item (dict "caption" .Title "url" "" "level" 1 "image" "" "final" true) }}
+    {{- $data := partial $item (dict "caption" .Title "url" "" "level" 1 "image" "" "final" true) }}
+    {{- $full_data = printf "%s%s" $full_data $data }}
 
   {{- else if eq .Kind "taxonomy" }}
 
     {{/* Find the taxonomyTerm and render */}}
 
     {{- $taxonomyTerm := .Site.GetPage "taxonomyTerm" .Data.Plural }}
-    {{ partial $item (dict "caption" $taxonomyTerm.Title "url" $taxonomyTerm.URL "level" 1 "image" "" "final" false) }}
+    {{- $data := partial $item (dict "caption" $taxonomyTerm.Title "url" $taxonomyTerm.URL "level" 1 "image" "" "final" false) }}
+    {{- $full_data = printf "%s%s" $full_data $data }}
 
     {{/* Render the taxonomy item */}}
 
-    {{ partial $item (dict "caption" .Title "url" .URL "level" 2 "image" "" "final" true) }}
+    {{- $data := partial $item (dict "caption" .Title "url" .URL "level" 2 "image" "" "final" true) }}
+    {{- $full_data = printf "%s%s" $full_data $data }}
 
   {{- else if or ( eq .Kind "section" ) ( eq .Kind "page" ) }}
 
     {{/* Display all relevant section elements */}}
 
-    {{- partial "breadcrumbs/recursive.html" (dict "output_type" $output_type "sections" .Site.Home.Sections "level" 1 "path" $path "dir" .URL ) }}
+    {{- $data := partial "breadcrumbs/recursive.html" (dict "output_type" $output_type "sections" .Site.Home.Sections "level" 1 "path" $path "dir" .URL ) }}
+    {{- $full_data = printf "%s%s" $full_data $data }}
 
     {{- if eq .Kind "page" }}
 
       {{- $aux := split .URL "/" }}
-      {{ partial $item (dict "caption" .Title "url" .URL "level" (sub (len $aux) 2 ) "image" .Params.share_img "final" true ) }}
+      {{- $data := partial $item (dict "caption" .Title "url" .URL "level" (sub (len $aux) 2 ) "image" .Params.share_img "final" true ) }}
+      {{- $full_data = printf "%s%s" $full_data $data }}
 
     {{- end }}
   {{- end }}
 
-  {{ partial $footer }}
+  {{- $data := partial $footer . }}
+  {{- $full_data = printf "%s%s" $full_data $data }}
 {{- end }}
+
+{{- $full_data | safeHTML}}

@@ -3,8 +3,20 @@
 {{- $image := .image }}
 {{- $level := .level }}
 {{- $final := .final }}
-  <li class="breadcrumb-item {{ if eq $final true }}active{{ end }}" {{ if eq $final true }}aria-current="page"{{ end }}>
-    {{- if eq $final false }}<a href="{{ .url }}">{{- end }}
-    <small>{{ .caption }}</small>
-    {{- if eq $final false }}</a>{{- end }}
+
+{{- $full_data := "" }}
+{{- if eq $final true }}
+  {{- $full_data = printf `
+  <li class="breadcrumb-item active" aria-current="page">
+    <small>%s</small>
   </li>
+  ` $caption }}
+{{- else }}
+  {{- $full_data = printf `
+  <li class="breadcrumb-item">
+    <a href="%s"><small>%s</small></a>
+  </li>
+  ` $url $caption }}
+{{- end }}
+
+{{ return $full_data }}
