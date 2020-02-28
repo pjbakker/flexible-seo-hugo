@@ -30,6 +30,10 @@ Within your `config.toml` add the according parameter you want the theme to use.
 
 The theme will look for the theme parts in *layouts/partials/navs/*, *layouts/partials/headers/*, and *layouts/partials/footers/* accordingly. For instance, with `nav = "simple"`, it will look for *layouts/partials/navs/simple.html*.
 
+## Breadcrumbs
+
+By default a breadcrumb bar is shown at the top of each page other than Home. You can disable showing the breadcrumb bar at a site or page level by setting `showBreadcrumbs` to `false`.
+
 ## Enabling Analytics
 
 Assuming you already signed up for [Google Analytics](https://www.google.com/analytics/), you can add your Google Tracking ID to the `googleAnalytics` parameter in `config.toml`. It will then automatically include Google Analytics code in your site.

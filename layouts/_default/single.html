@@ -1,5 +1,13 @@
 {{ define "main" }}
+{{- $showBreadcrumbs := $.Params.showBreadcrumbs | default $.Site.Params.showBreadcrumbs | default true }}
 <div class="container" role="main">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+  {{ if eq $showBreadcrumbs true -}}
+    {{ partial "breadcrumbs.html" ( dict "ctx" . "output_type" "list" ) }}
+  {{- end }}
+    </div>
+  </div>
   <article>
     <div class="row justify-content-center">
       <div class="col-md-8">

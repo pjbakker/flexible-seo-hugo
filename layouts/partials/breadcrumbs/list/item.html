@@ -1,0 +1,10 @@
+{{- $url := .url }}
+{{- $caption := .caption }}
+{{- $image := .image }}
+{{- $level := .level }}
+{{- $final := .final }}
+  <li class="breadcrumb-item {{ if eq $final true }}active{{ end }}" {{ if eq $final true }}aria-current="page"{{ end }}>
+    {{- if eq $final false }}<a href="{{ .url }}">{{- end }}
+    <small>{{ .caption }}</small>
+    {{- if eq $final false }}</a>{{- end }}
+  </li>
