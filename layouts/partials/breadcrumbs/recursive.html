@@ -8,10 +8,10 @@
 
 {{- range $sections }}
   {{- $section := index $path $level }}
-  {{- $aux := split .URL "/" }}
+  {{- $aux := split .RelPermalink "/" }}
 
   {{- if eq $section (index $aux $level) }}
-    {{ $data := partial $item (dict "caption" .Title "url" .URL "image" .Params.share_img "level" $level "final" (eq ( add $level 2 ) (len $path) ) ) }}
+    {{ $data := partial $item (dict "caption" .Title "url" .RelPermalink "image" .Params.share_img "level" $level "final" (eq ( add $level 2 ) (len $path) ) ) }}
     {{ $full_data = printf "%s%s" $full_data $data }}
 
     {{- if gt (len .Sections) 0 }}
