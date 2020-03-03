@@ -27,7 +27,7 @@
 <!-- SEO -->
 {{- partial "seo/main.html" . -}}
 {{- $showBreadcrumbs := $.Params.showBreadcrumbs | default $.Site.Params.showBreadcrumbs | default true }}
-{{ if eq $showBreadcrumbs true -}}
+{{ if and ( eq $showBreadcrumbs true ) ( eq .IsHome false ) -}}
   {{ partial "breadcrumbs.html" ( dict "ctx" . "output_type" "structured" ) }}
 {{- end }}
 
