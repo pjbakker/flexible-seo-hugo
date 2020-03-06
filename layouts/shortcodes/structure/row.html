@@ -1,0 +1,8 @@
+{{- $col_definition := .Get "width" | default "col" -}}
+{{- $justify_definition := .Get "justify" | default "justify-content-center" -}}
+{{- $align_definition := .Get "align" | default "" -}}
+<div class="row {{ $justify_definition }}">
+  <div class="{{ $col_definition }} {{ $align_definition }}">
+{{ .Inner }}
+  </div>
+</div>
