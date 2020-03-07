@@ -16,6 +16,9 @@ All core pages have been optimized for SEO-friendliness.
 Of course there is also support for:
 
 * Google Analytics
+* Easily switching navigation, header and footer templates
+* SEO friendly list pages (No auto-generated lists!)
+* Auto generated breadcrumbs (both visible and structured data)
 
 ## Switching navigation, header or footer
 
