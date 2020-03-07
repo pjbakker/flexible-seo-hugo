@@ -1,4 +1,4 @@
-baseurl = "www.example.com"
+baseurl = "https://example.com"
 languageCode = "en-us"
 title = "Flexible SEO Hugo"
 theme = ["flexible-seo-hugo"]
