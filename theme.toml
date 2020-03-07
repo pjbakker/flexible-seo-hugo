@@ -4,7 +4,7 @@ licenselink = "https://github.com/pjbakker/flexible-seo-hugo/blob/master/LICENSE
 description = ""
 homepage = "http://github.com/pjbakker/flexible-seo-hugo/"
 tags = [ "bootstrap", "customizable", "responsive" ]
-min_version = "0.41"
+min_version = "0.63.0"
 
 [author]
   name = "Paul Bakker"
