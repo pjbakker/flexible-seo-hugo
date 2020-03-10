@@ -33,6 +33,13 @@ Within your `config.toml` add the according parameter you want the theme to use.
 
 The theme will look for the theme parts in *layouts/partials/navs/*, *layouts/partials/headers/*, and *layouts/partials/footers/* accordingly. For instance, with `nav = "simple"`, it will look for *layouts/partials/navs/simple.html*.
 
+### Supported page header styles
+
+The following page header styles are included:
+
+* `simple`, just a plain centered title and subtitle.
+* `image_header`, a screen-wide header image (located in `headerImage`) with the title and subtitle on it.
+
 ### Supported footer styles
 
 The following footer styles are included:

@@ -1,0 +1,36 @@
+.intro-header {
+    margin-bottom: 20px;
+}
+
+.intro-header.header-img {
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-top: 0px;
+  margin-bottom: 35px;
+  height: 200px;
+}
+
+.intro-header.header-img .heading
+{
+  padding: 10px 0;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px #000000;
+}
+
+.intro-header .heading .subheading
+{
+  font-size: 27px;
+  line-height: 1.1;
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  margin: 10px 0 0;
+}
+
+.intro-header.header-img .heading .subheading
+{
+  font-weight: 400;
+}

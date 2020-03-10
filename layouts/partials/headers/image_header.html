@@ -1,0 +1,24 @@
+{{- $title := .Params.title -}}
+{{- $subtitle := .Params.subtitle -}}
+{{- $headerImage := .Params.headerImage -}}
+
+<style>
+</style>
+
+<header class="header-section">
+  <div class="intro-header header-img" style='background-image: url("{{$headerImage.src}}");'>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+          <div class="heading">
+            <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
+              {{ if $subtitle }}
+                <hr class="small">
+                <span class="subheading">{{ $subtitle }}</span>
+              {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
