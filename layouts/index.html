@@ -1,7 +1,5 @@
 {{ define "main" }}
-  <div role="main" class="container">
-    {{ with .Content }}
-      {{.}}
-    {{ end }}
-  </div>
+  {{- $home_type := .Params.homeType | default .Site.Params.homeType | default "simple" }}
+  {{- $home_file := printf "homes/%s.html" $home_type }}
+  {{- partial $home_file . }}
 {{ end }}
