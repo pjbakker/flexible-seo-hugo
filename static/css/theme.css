@@ -34,3 +34,46 @@
 {
   font-weight: 400;
 }
+
+.list-preview a {
+  text-decoration: none;
+  color: #404040;
+}
+
+.list-preview a:focus,
+.list-preview a:hover {
+  text-decoration: none;
+  color: #0085a1;
+}
+
+.list-preview .item-title
+{
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.list-preview .item-subtitle
+{
+  margin: 0;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.list-preview .item-meta
+{
+  color: #808080;
+  font-size: 18px;
+  font-style: italic;
+  margin: 0 0 10px;
+}
+
+.list-preview .item-meta a
+{,
+  color: #404040;
+  text-decoration: none;
+}
+
+.list-preview .item-entry
+{
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
