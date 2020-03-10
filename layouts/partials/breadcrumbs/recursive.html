@@ -15,7 +15,7 @@
     {{ $full_data = printf "%s%s" $full_data $data }}
 
     {{- if gt (len .Sections) 0 }}
-      {{- $data := partial "breadcrumbs_recursive.html" ( dict "output_type" $output_type "sections" .Sections "level" (add $level 1) "path" $path "dir" $dir ) }}
+      {{- $data := partial "breadcrumbs/recursive.html" ( dict "output_type" $output_type "sections" .Sections "level" (add $level 1) "path" $path "dir" $dir ) }}
       {{ $full_data = printf "%s%s" $full_data $data }}
     {{- end }}
   {{- end }}
