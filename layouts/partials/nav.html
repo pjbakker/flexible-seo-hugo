@@ -1,3 +1,3 @@
-{{- $nav_type := .Site.Params.Nav | default "simple" }}
+{{- $nav_type := .Site.Params.navType | default "simple" }}
 {{- $nav_file := printf "navs/%s.html" $nav_type }}
 {{- partial $nav_file . }}

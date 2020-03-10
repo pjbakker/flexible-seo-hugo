@@ -22,14 +22,17 @@ Of course there is also support for:
 
 ## Switching navigation, header or footer
 
-Within your `config.toml` add the according parameter you want the theme to use. By default, the theme uses 'simples' for navigation, header and footer.
+Within your `config.toml` add the according parameter you want the theme to use. By default, the theme uses 'simples' for home, navigation, header and footer.
 
 ~~~
 [Params]
-  nav = "simple"
-  header = "simple"
-  footer = "simple"
+  homeType = "simple"
+  navType = "simple"
+  headerType = "simple"
+  footerType = "simple"
 ~~~
+
+You can set headerType on a page level!
 
 The theme will look for the theme parts in *layouts/partials/navs/*, *layouts/partials/headers/*, and *layouts/partials/footers/* accordingly. For instance, with `nav = "simple"`, it will look for *layouts/partials/navs/simple.html*.
 

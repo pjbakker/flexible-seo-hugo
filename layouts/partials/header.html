@@ -1,3 +1,3 @@
-{{- $header_type := .Params.Header | default .Site.Params.Header | default "simple" }}
+{{- $header_type := .Params.headerType | default .Site.Params.headerType | default "simple" }}
 {{- $header_file := printf "headers/%s.html" $header_type }}
 {{- partial $header_file . }}
