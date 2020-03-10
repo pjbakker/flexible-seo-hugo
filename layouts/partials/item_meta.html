@@ -1,0 +1,9 @@
+<span class="item-meta">
+  {{- $lastmodstr := .Lastmod.Format "Jan 2, 2006" }}
+  {{- $datestr := .Date.Format "Jan 2, 2006" }}
+  <i class="fa fa-calendar"></i>&nbsp;Posted on {{ $datestr }}
+  {{ if ne $datestr $lastmodstr }}
+    &nbsp; (Last modified {{ $lastmodstr }})
+  {{ end }}
+</span>
+
