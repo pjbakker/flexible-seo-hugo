@@ -36,6 +36,13 @@ You can set headerType on a page level!
 
 The theme will look for the theme parts in *layouts/partials/navs/*, *layouts/partials/headers/*, and *layouts/partials/footers/* accordingly. For instance, with `nav = "simple"`, it will look for *layouts/partials/navs/simple.html*.
 
+### Supported home styles
+
+The following home page styles are included for **content/_index.md**:
+
+* `simple`, just a plain bootstrap row and col-8.
+* `no_row`, just a bootstrap container, giving you full flexibility to fill the container.
+
 ### Supported page header styles
 
 The following page header styles are included:
