@@ -33,6 +33,13 @@ Within your `config.toml` add the according parameter you want the theme to use.
 
 The theme will look for the theme parts in *layouts/partials/navs/*, *layouts/partials/headers/*, and *layouts/partials/footers/* accordingly. For instance, with `nav = "simple"`, it will look for *layouts/partials/navs/simple.html*.
 
+### Supported footer styles
+
+The following footer styles are included:
+
+* `simple`, just a copyright statement and the option to have a limited number of links in the footer. Links are taken from .Params.footerLinks.
+* `bar_with_2_columns`, a gray bar at the bottom with two columns (left aligned and right aligned). Links are taken from .Params.footerLinksColumn1 and .Params.footerLinksColumn2.
+
 ## Breadcrumbs
 
 By default a breadcrumb bar is shown at the top of each page other than Home. You can disable showing the breadcrumb bar at a site or page level by setting `showBreadcrumbs` to `false`.

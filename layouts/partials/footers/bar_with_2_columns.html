@@ -1,0 +1,48 @@
+<footer class="mt-5 p-5 text-muted bg-secondary small">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <ul class="nav flex-column">
+          {{- range $link, $name := .Site.Params.footerLinksColumn1 }}
+          <li class="nav-item">
+            <a class="nav-link text-light" href="{{ $link }}">{{ $name }}</a>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+      <div class="col-md-4 text-right">
+        <ul class="nav flex-column">
+          {{- range $link, $name := .Site.Params.footerLinksColumn2 }}
+          <li class="nav-item">
+            <a class="nav-link text-light" href="{{ $link }}">{{ $name }}</a>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-4 text-center text-light">
+        <p class="mb-1 small">&copy;
+      {{- if .Site.Params.since }}
+        {{ .Site.Params.since }} -
+      {{- end }}
+      {{ .Site.LastChange.Format "2006" }}
+
+      {{- if .Site.Author.name }}
+        {{- if .Site.Author.website }}
+          <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
+        {{- else }}
+          {{ .Site.Author.name }}
+        {{- end }}
+      {{- end }}
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+{{- partial "footer_custom.html" . }}
