@@ -1,7 +1,7 @@
 <footer class="mt-5 p-5 text-muted bg-secondary small">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-4">
+      <div class="col-md-4 text-center text-md-left">
         <ul class="nav flex-column">
           {{- range $link, $name := .Site.Params.footerLinksColumn1 }}
           <li class="nav-item">
@@ -10,7 +10,7 @@
           {{- end }}
         </ul>
       </div>
-      <div class="col-md-4 text-right">
+      <div class="col-md-4 text-center text-md-right">
         <ul class="nav flex-column">
           {{- range $link, $name := .Site.Params.footerLinksColumn2 }}
           <li class="nav-item">
