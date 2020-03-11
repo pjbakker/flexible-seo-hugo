@@ -1,11 +1,88 @@
-  <div role="main" class="container">
-    <article>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-        {{ with .Content }}
-          {{.}}
-        {{ end }}
-        </div>
+{{- $showGeneratedList := $.Params.showGeneratedList | default $.Site.Params.showGeneratedList | default true }}
+{{- $showItemMeta := $.Params.showItemMeta | default $.Site.Params.showItemMeta | default true }}
+<div class="container" role="main">
+  {{- with .Content }}
+  <article>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        {{- . -}}
       </div>
-    </article>
+    </div>
+  </article>
+  {{- end }}
+  {{ if eq $showGeneratedList true -}}
+    {{ with .Sections }}
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <ul class="list-group">
+          {{ range . }}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{{.Permalink}}">{{ .Title }}</a>
+            <span class="badge badge-pill badge-primary">{{ len .Pages }}</span>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    {{ end }}
+
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-8 posts-list">
+        {{ range .Paginator.Pages }}
+        <article class="list-preview mt-3">
+          <a href="{{ .Permalink }}">
+          <h2 class="item-title">{{ .Title }}</h2>
+
+          {{ if .Params.subtitle }}
+            <h3 class="item-subtitle">
+            {{- .Params.subtitle -}}
+            </h3>
+          {{ end }}
+          </a>
+
+          {{- if eq $showItemMeta true }}
+          <p class="item-meta">
+            {{ partial "item_meta.html" . }}
+          </p>
+          {{- end }}
+          <div class="item-entry">
+            {{ if .Truncated }}
+              {{ .Summary }}
+              <a href="{{ .Permalink }}" class="post-read-more">[Read more]</a>
+            {{ else }}
+              {{ .Content }}
+            {{ end }}
+          </div>
+
+          {{ if .Params.tags }}
+          <div class="blog-tags">
+            {{ range .Params.tags }}
+            <a href="{{ $.Site.LanguagePrefix | absURL }}tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
+            {{ end }}
+          </div>
+          {{ end }}
+
+        </article>
+        {{ end }}
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-8 posts-list">
+      {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+      <ul class="pagination">
+        {{ if .Paginator.HasPrev }}
+        <li class="page-item">
+          <a class="page-link" href="{{ .Permalink }}page/{{ .Paginator.Prev.PageNumber }}/">&larr; Newer posts</a>
+        </li>
+        {{ end }}
+        {{ if .Paginator.HasNext }}
+        <li class="page-item">
+          <a class="page-link" href="{{ .Permalink }}page/{{ .Paginator.Next.PageNumber }}/">Older posts &rarr;</a>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+      </div>
+    </div>
+    {{- end }}
   </div>
