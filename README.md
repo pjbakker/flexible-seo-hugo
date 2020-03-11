@@ -22,7 +22,7 @@ Of course there is also support for:
 
 ## Switching navigation, header or footer
 
-Within your `config.toml` add the according parameter you want the theme to use. By default, the theme uses 'simples' for home, navigation, header and footer.
+Within your `config.toml` add the according parameter you want the theme to use. By default, the theme uses 'simple' for home, navigation, header and footer.
 
 ~~~
 [Params]
@@ -40,6 +40,7 @@ The theme will look for the theme parts in *layouts/partials/navs/*, *layouts/pa
 
 The following home page styles are included for **content/_index.md**:
 
+* `bare`,  no scaffolding, giving you total control over the structure.
 * `simple`, just a plain bootstrap row and col-8.
 * `no_row`, just a bootstrap container, giving you full flexibility to fill the container.
 
