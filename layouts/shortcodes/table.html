@@ -1,0 +1,2 @@
+{{ $caption := printf "<table class=\"%s\"><caption class=\"text-center\">%s</caption>" ( .Get "class" ) ( .Get "caption" ) }}
+{{ .Inner | markdownify | replaceRE "<table>" $caption | safeHTML }}
