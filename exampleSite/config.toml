@@ -23,7 +23,3 @@ unsafe = true
     anonymizeIP = true
     respectDoNotTrack = true
 
-[[menu.main]]
-    name = "Shortcodes"
-    url = "shortcodes/"
-    weight = 1

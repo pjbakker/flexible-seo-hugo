@@ -74,20 +74,24 @@
         </article>
         {{ end }}
       </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-8 posts-list">
       {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
-      <ul class="pager main-pager">
+      <ul class="pagination">
         {{ if .Paginator.HasPrev }}
-        <li class="previous">
-          <a href="{{ .Permalink }}page/{{ .Paginator.Prev.PageNumber }}/">&larr; Newer posts</a>
+        <li class="page-item">
+          <a class="page-link" href="{{ .Permalink }}page/{{ .Paginator.Prev.PageNumber }}/">&larr; Newer posts</a>
         </li>
         {{ end }}
         {{ if .Paginator.HasNext }}
-        <li class="next">
-          <a href="{{ .Permalink }}page/{{ .Paginator.Next.PageNumber }}/">Older posts &rarr;</a>
+        <li class="page-item">
+          <a class="page-link" href="{{ .Permalink }}page/{{ .Paginator.Next.PageNumber }}/">Older posts &rarr;</a>
         </li>
         {{ end }}
       </ul>
       {{ end }}
+      </div>
     </div>
     {{- end }}
 </div>
