@@ -1,7 +1,7 @@
 name = "Flexible-SEO-Hugo"
 license = "MIT"
 licenselink = "https://github.com/pjbakker/flexible-seo-hugo/blob/master/LICENSE"
-description = ""
+description = "A theme with flexible home, nav, header and footer styles and staying SEO friendly""
 homepage = "http://github.com/pjbakker/flexible-seo-hugo/"
 tags = [ "bootstrap", "customizable", "responsive" ]
 features = [ "breadcrumbs", "structured-data" ]
