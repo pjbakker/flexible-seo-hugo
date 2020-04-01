@@ -109,3 +109,11 @@
 {
   content: "#";
 }
+
+.read-more
+{
+  font-weight: 800;
+  float: right;
+  text-decoration: none;
+  color: #404040;
+}
