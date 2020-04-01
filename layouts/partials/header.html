@@ -1,3 +1,6 @@
 {{- $header_type := .Params.headerType | default .Site.Params.headerType | default "simple" }}
+{{- if or ( eq .Kind "taxonomyTerm" ) ( eq .Kind "taxonomy" ) }}
+  {{- $header_type = .Site.Params.taxonomyHeaderType | default "simple" }}
+{{- end }}
 {{- $header_file := printf "headers/%s.html" $header_type }}
 {{- partial $header_file . }}

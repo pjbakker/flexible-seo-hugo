@@ -1,0 +1,35 @@
+{{ define "main" }}
+
+{{ $data := .Data }}
+<div class="container" role="main">
+  <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <article class="post-preview">
+      <div id="accordion" role="tablist" aria-multiselectable="true">
+        {{ range $key, $value := .Data.Terms.ByCount }}
+          <div class="card">
+            <button class="btn collapsed" role="button" data-toggle="collapse" data-target="#collapse{{ $value.Name }}" data-parent="#accordion" aria-expanded="false" aria-controls="collapse{{ $value.Name }}">
+              <div class="card-header" role="tab" id="header{{ $value.Name }}">
+                <h4 class="card-title">
+                  {{ $value.Name }}
+                  <span class="badge badge-secondary float-right">{{ $value.Count }}</span>
+                </h4>
+              </div>
+            </button>
+            <div id="collapse{{ $value.Name }}" class="card-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $value.Name }}">
+              <div class="card-body">
+                <a href="{{ $.Site.LanguagePrefix | absURL }}{{ $data.Plural }}/{{ $value.Name | urlize }}/" class="list-group-item list-group-item-action view-all">
+                View all</a>
+                <div class="list-group">
+                  {{ range $item := $value.WeightedPages }}
+                    <a href="{{$item.Permalink}}" class="list-group-item list-group-item-action">{{ $item.Title }}</a>
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </article>
+  </div>
+</div>
+{{ end }}

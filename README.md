@@ -29,6 +29,7 @@ Within your `config.toml` add the according parameter you want the theme to use.
   homeType = "simple"
   navType = "simple"
   headerType = "simple"
+  taxonomyHeaderType = "simple"
   footerType = "simple"
 ~~~
 
