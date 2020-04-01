@@ -4,7 +4,7 @@
 {{- $showItemMeta := $.Params.showItemMeta | default $.Site.Params.showItemMeta | default true }}
 <div class="container" role="main">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-lg-8">
   {{ if eq $showBreadcrumbs true -}}
     {{ partial "breadcrumbs.html" ( dict "ctx" . "output_type" "list" ) }}
   {{- end }}
@@ -13,7 +13,7 @@
   {{- with .Content }}
   <article>
     <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-lg-8">
         {{- . -}}
       </div>
     </div>
@@ -22,7 +22,7 @@
   {{ if eq $showGeneratedList true -}}
     {{ with .Sections }}
     <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-lg-8">
         <ul class="list-group">
           {{ range . }}
           <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -36,7 +36,7 @@
     {{ end }}
 
     <div class="row justify-content-center mt-3">
-      <div class="col-md-8 posts-list">
+      <div class="col-lg-8 posts-list">
         {{ range .Paginator.Pages }}
         <article class="list-preview">
           <a href="{{ .Permalink }}">
@@ -76,7 +76,7 @@
       </div>
     </div>
     <div class="row justify-content-center mt-3">
-      <div class="col-md-8 posts-list">
+      <div class="col-lg-8 posts-list">
       {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
       <ul class="pagination">
         {{ if .Paginator.HasPrev }}
