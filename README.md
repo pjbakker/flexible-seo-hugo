@@ -63,6 +63,10 @@ The following footer styles are included:
 
 By default a breadcrumb bar is shown at the top of each page other than Home. You can disable showing the breadcrumb bar at a site or page level by setting `showBreadcrumbs` to `false`.
 
+## CSS adaption
+
+After Bootstrap and this theme's CSS file (*/static/css/theme.css*), the empty local CSS file (*/static/css/local.css*) is included which you can override in your own site.
+
 ## Enabling Analytics
 
 Assuming you already signed up for [Google Analytics](https://www.google.com/analytics/), you can add your Google Tracking ID to the `googleAnalytics` parameter in `config.toml`. It will then automatically include Google Analytics code in your site.
