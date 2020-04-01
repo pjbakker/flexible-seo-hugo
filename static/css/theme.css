@@ -35,7 +35,14 @@
   font-weight: 400;
 }
 
-.list-preview a {
+.list-preview
+{
+    border-bottom: 1px solid #eee;
+    padding: 35px 0;
+}
+
+.list-preview a
+{
   text-decoration: none;
   color: #404040;
 }
@@ -76,4 +83,29 @@
 .list-preview .item-entry
 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.blog-tags
+{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #999;
+    font-size: 15px;
+}
+
+.blog-tags:before
+{
+  content: "Tags: ";
+}
+
+.blog-tags a
+{
+    color: #008aff;
+    text-decoration: none;
+    padding: 0px 5px;
+}
+
+.blog-tags a:before
+{
+  content: "#";
 }
