@@ -73,6 +73,10 @@ After Bootstrap and this theme's CSS file (*/static/css/theme.css*), the empty l
 
 Assuming you already signed up for [Google Analytics](https://www.google.com/analytics/), you can add your Google Tracking ID to the `googleAnalytics` parameter in `config.toml`. It will then automatically include Google Analytics code in your site.
 
+## Disqus support
+
+When `DisqusShortname` is set in your site's config, all regular pages will have Disqus enabled at the bottom. You can disable this on a page-by-page basis by setting `comments` to `false` in a page's front matter.
+
 ## License
 
 MIT Licensed, see [LICENSE](https://github.com/pjbakker/flexible-seo-hugo/blob/master/LICENSE).

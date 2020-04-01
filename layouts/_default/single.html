@@ -40,6 +40,13 @@
         </div>
       {{ end }}
     </div>
+    {{ if and .Site.DisqusShortname ( ne .Params.comments false ) -}}
+    <div class="row justify-content-center pt-3">
+      <div class="col-lg-8">
+        {{ template "_internal/disqus.html" . }}
+      </div>
+    </div>
+    {{ end }}
   </article>
 </div>
 {{ end }}
