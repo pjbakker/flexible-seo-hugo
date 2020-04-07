@@ -1,7 +1,7 @@
 <!-- image -->
 <figure class="figure {{with .Get "class" }}{{.}}{{ end }}">
     {{ if .Get "link"}}<a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>{{ end }}
-        <img src="{{ .Get "src" }}" class="figure-img {{ with .Get "imgclass" }}{{.}}{{ end }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}" {{ end }}{{with .Get "title"}}title="{{.}}" {{end}}{{ with .Get "width" }}width="{{.}}" {{ end }}{{ with .Get "height" }}height="{{.}}" {{ end }}/>
+        <img src="{{ .Get "src" }}" class="figure-img {{ with .Get "imgclass" }}{{.}}{{ end }}" {{ with .Get "imgstyle" }}style="{{.}}"{{ end }}{{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}" {{ end }}{{with .Get "title"}}title="{{.}}" {{end}}{{ with .Get "width" }}width="{{.}}" {{ end }}{{ with .Get "height" }}height="{{.}}" {{ end }}/>
     {{- if .Get "link"}}</a>{{ end }}
     {{- if or (or (.Get "caption-title") (.Get "caption")) (.Get "attr")}}
     <figcaption class="figure-caption text-right">{{- if isset .Params "caption-title" }}
