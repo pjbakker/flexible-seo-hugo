@@ -16,7 +16,7 @@
     {{- $data := partial $item (dict "caption" .Title "url" "" "level" 1 "image" "" "final" true) }}
     {{- $full_data = printf "%s%s" $full_data $data }}
 
-  {{- else if eq .Kind "taxonomy" }}
+  {{- else if or ( eq .Kind "taxonomy" ) ( eq .Kind "term" ) }}
 
     {{/* Find the taxonomyTerm and render */}}
 
